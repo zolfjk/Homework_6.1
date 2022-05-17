@@ -11,14 +11,12 @@ public class SalesCalcService {
     }
 
     public long calcAverageSales(long[] sales) {
-        long score = 0;
         int numberOfMonths = 0;
         for (long sumSales : sales) {
-            score += sumSales;
             numberOfMonths += 1;
 
         }
-        return score / numberOfMonths;
+        return calcSumSales(sales) / numberOfMonths;
     }
 
     public int maxSales(long[] sales) {
@@ -49,13 +47,11 @@ public class SalesCalcService {
     }
 
     public int salesBelowAverageSales(long[] sales) {
+
         int belowAverageSales = 0;
 
-        SalesCalcService salesCalc = new SalesCalcService();
-        long averageSales = salesCalc.calcAverageSales(sales);
-
         for (long sumSales : sales) {
-            if (sumSales < averageSales) {
+            if (sumSales < calcAverageSales(sales)) {
                 belowAverageSales += 1;
             }
         }
@@ -63,13 +59,11 @@ public class SalesCalcService {
     }
 
     public int salesAboveAverageSales(long[] sales) {
+
         int aboveAverageSales = 0;
 
-        SalesCalcService salesCalc = new SalesCalcService();
-        long averageSales = salesCalc.calcAverageSales(sales);
-
         for (long sumSales : sales) {
-            if (sumSales > averageSales) {
+            if (sumSales > calcAverageSales(sales)) {
                 aboveAverageSales += 1;
             }
         }
