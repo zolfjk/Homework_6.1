@@ -69,10 +69,10 @@ public class SaleCalcServiceTest {
     public void aboveAverageSales() {
         SalesCalcService salesCalcService = new SalesCalcService();
 
-        long[] sales = {7, 8, 9, 10, 11};
+        long[] sales = {8, 9, 10, 11, 12, 13, 14};
 
         long actual = salesCalcService.salesAboveAverageSales(sales);
-        long expected = 2;
+        long expected = 3;
 
         Assertions.assertEquals(expected, actual);
     }
